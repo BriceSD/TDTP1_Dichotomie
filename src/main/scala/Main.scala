@@ -6,7 +6,7 @@ object Main {
     for (i <- 0 to src.length)
       dst(i) = src(i)
   }
-  
+
   def cherche(poids: Array[Int],capacite:Int)
   {
     var len = poids.length
@@ -16,10 +16,10 @@ object Main {
     print("Meilleure solution trouvée")
     affiche(meilleure,len)
     print("Valeur du sac:"+valeurTotale(meilleure,poids))
-    
+
     def chercheRec(profondeur:Int,sac_courant:Array[Boolean])
     {
-      
+
     }
   }
 
@@ -44,6 +44,18 @@ object Main {
       for (i <- indiceMax until objets.length)
         print("...")
     }
+  }
+
+  def mettreDansSac(objets: Array[Boolean], obj:Int): Unit ={
+    if(objets(obj))
+      println("L’objet " + obj + " est déjà pris.")
+    objets(obj) = true
+  }
+
+  def retirerDuSac(objets: Array[Boolean], obj:Int): Unit ={
+    if(!objets(obj))
+      println("L’objet " + obj + " est déjà posé.")
+    objets(obj) = false
   }
 
   def main(args: Array[String]): Unit = {
