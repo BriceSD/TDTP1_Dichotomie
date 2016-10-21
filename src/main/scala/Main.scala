@@ -16,18 +16,40 @@ object Main {
     affiche(meilleure, len)
     print("Valeur du sac:" + valeurTotale(meilleure, poids))
 
-    def chercheRec(profondeur: Int, sac_courant: Array[Boolean]) {
-      if (profondeur == sac_courant.length - 1) {
-        affiche(sac_courant, profondeur);
+    def chercheRec(profondeur: Int, courante: Array[Boolean]) {
 
+      var valeur = valeurTotale(courante, poids)
+
+      print(" (prof = " + profondeur + ") Explore ")
+      affiche(courante, profondeur)
+      print(" Valeur " + valeur)
+
+      if (valeur > capacite) {
+        println(" *** Oups, ca deborde (backtrack!) ***")
+        return
       }
-      else {
-        if (poids(profondeur) + valeurTotale(sac_courant, poids) <= capacite) {
-          sac_courant(profondeur) = true;
-          chercheRec(profondeur + 1, sac_courant);
-        }
+
+      if (valeurTotale(courante, poids) > valeurTotale(meilleure, poids)) {
+        duplique(courante, meilleure)
+        print(" Nouvelle meilleure solution ")
       }
+      else
+        print("   ")
+
+      if (profondeur == poids.length) {
+        println("(Cas terminal)")
+        return
+      }
+      else
+        println("(Cas general")
+
+      mettreDansSac(courante, profondeur)
+      chercheRec(profondeur + 1, courante)
+
+      retirerDuSac(courante, profondeur)
+      chercheRec(profondeur + 1, courante)
     }
+
   }
 
   def valeurTotale(objets: Array[Boolean], poids: Array[Int]): Int = {
