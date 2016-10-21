@@ -19,7 +19,17 @@ object Main {
     
     def chercheRec(profondeur:Int,sac_courant:Array[Boolean])
     {
-      
+    	if(profondeur==sac_courant.length-1){
+    	  affiche(poids,profondeur);
+    	  
+    	}
+    	else{
+    	  if(poids(profondeur)+valeurTotale(sac_courant,poids)<=capacite)
+    	  {
+    	    sac_courant(profondeur) = true;
+    	    chercheRec(profondeur+1,sac_courant);
+    	  }
+    	}
     }
   }
 
@@ -47,7 +57,7 @@ object Main {
   }
 
   def main(args: Array[String]): Unit = {
-    println("Bite")
+    println("zakjnzaedkjlzaklj")
   }
 
 }
