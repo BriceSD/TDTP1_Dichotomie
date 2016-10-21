@@ -6,30 +6,27 @@ object Main {
     for (i <- 0 to src.length)
       dst(i) = src(i)
   }
-  
-  def cherche(poids: Array[Int],capacite:Int)
-  {
+
+  def cherche(poids: Array[Int], capacite: Int) {
     var len = poids.length
-    var meilleure:Array[Boolean] = Array.fill(len)(false)
-    chercheRec(0,Array.fill(len)(false))
+    var meilleure: Array[Boolean] = Array.fill(len)(false)
+    chercheRec(0, Array.fill(len)(false))
     println
     print("Meilleure solution trouvée")
-    affiche(meilleure,len)
-    print("Valeur du sac:"+valeurTotale(meilleure,poids))
-    
-    def chercheRec(profondeur:Int,sac_courant:Array[Boolean])
-    {
-    	if(profondeur==sac_courant.length-1){
-    	  affiche(poids,profondeur);
+    affiche(meilleure, len)
+    print("Valeur du sac:" + valeurTotale(meilleure, poids))
 
-    	}
-    	else{
-    	  if(poids(profondeur)+valeurTotale(sac_courant,poids)<=capacite)
-    	  {
-    	    sac_courant(profondeur) = true;
-    	    chercheRec(profondeur+1,sac_courant);
-    	  }
-    	}
+    def chercheRec(profondeur: Int, sac_courant: Array[Boolean]) {
+      if (profondeur == sac_courant.length - 1) {
+        affiche(sac_courant, profondeur);
+
+      }
+      else {
+        if (poids(profondeur) + valeurTotale(sac_courant, poids) <= capacite) {
+          sac_courant(profondeur) = true;
+          chercheRec(profondeur + 1, sac_courant);
+        }
+      }
     }
   }
 
@@ -56,14 +53,14 @@ object Main {
     }
   }
 
-  def mettreDansSac(objets: Array[Boolean], obj:Int): Unit ={
-    if(objets(obj))
+  def mettreDansSac(objets: Array[Boolean], obj: Int): Unit = {
+    if (objets(obj))
       println("L’objet " + obj + " est déjà pris.")
     objets(obj) = true
   }
 
-  def retirerDuSac(objets: Array[Boolean], obj:Int): Unit ={
-    if(!objets(obj))
+  def retirerDuSac(objets: Array[Boolean], obj: Int): Unit = {
+    if (!objets(obj))
       println("L’objet " + obj + " est déjà posé.")
     objets(obj) = false
   }
