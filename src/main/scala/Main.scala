@@ -3,7 +3,7 @@
 object Main {
 
   def duplique(src: Array[Boolean], dst: Array[Boolean]): Unit = {
-    for (i <- 0 to src.length)
+    for (i <- 0 until src.length)
       dst(i) = src(i)
   }
 
@@ -12,9 +12,9 @@ object Main {
     var meilleure: Array[Boolean] = Array.fill(len)(false)
     chercheRec(0, Array.fill(len)(false))
     println
-    print("Meilleure solution trouvée")
+    print("Meilleure solution trouvée : ")
     affiche(meilleure, len)
-    print("Valeur du sac:" + valeurTotale(meilleure, poids))
+    print(", Valeur du sac : " + valeurTotale(meilleure, poids))
 
     def chercheRec(profondeur: Int, courante: Array[Boolean]) {
 
@@ -88,7 +88,8 @@ object Main {
   }
 
   def main(args: Array[String]): Unit = {
-    println("zakjnzaedkjlzaklj")
+    var t = Array(1, 2, 3, 4, 5, 8, 9, 10, 11, 12)
+    cherche(t, 4)
   }
 
 }
