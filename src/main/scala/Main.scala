@@ -7,7 +7,7 @@ object Main {
       dst(i) = src(i)
   }
   
-  def cherche(poid: Array[Int],capacite:Int)
+  def cherche(poids: Array[Int],capacite:Int)
   {
     var len = poids.length
     var meilleure:Array[Boolean] = Array.fill(len)(false)
@@ -15,7 +15,7 @@ object Main {
     println
     print("Meilleure solution trouvée")
     affiche(meilleure,len)
-    print("Valeur du sac:"+valeurTotale(meilleur,poids))
+    print("Valeur du sac:"+valeurTotale(meilleure,poids))
     
     def chercheRec(profondeur:Int,sac_courant:Array[Boolean])
     {
