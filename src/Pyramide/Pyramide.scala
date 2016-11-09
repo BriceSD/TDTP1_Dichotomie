@@ -1,5 +1,8 @@
 object Main {
 	
+  var hauteur = 3
+  var taille = hauteur/((hauteur+1)/2)
+  var permutations:List[Array[Int]]=Nil
   
  def duplique(src: Array[Int]):Array[Int]={
   var dist = Array.fill(src.length)(0)
