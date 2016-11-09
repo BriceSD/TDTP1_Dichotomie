@@ -19,18 +19,39 @@ object Main {
 
   def genere(rang: Int, tab: Array[Int]): Unit = {
     if (rang >= tab.length)
-      permutations = duplique(tab) :: permutations
+    	permutations = duplique(tab) :: permutations
     else {
       for (valeur <- 1 to tab.length) {
+        
+        
+        
         var dejaPris = false
         for (i <- 0 to rang - 1) {
           if (tab(i) == valeur)
             dejaPris = true
         }
+        println("--------------")
+        print(dejaPris)
         if (!dejaPris) {
           tab(rang) = valeur
-          genere(rang + 1, tab)
-        }
+          if(rang>=2)
+          {
+            
+            println(tab(rang-1))
+            println(tab(rang))
+            println(tab(rang-2))
+            println(math.abs((tab(rang-1)-tab(rang))))
+            if(math.abs((tab(rang-1)-tab(rang)))==tab(rang-2))
+            { 
+              println("ici")
+            	genere(rang + 1, tab)
+            }
+          }
+          else
+          {
+            genere(rang + 1, tab)
+          }
+         }
       }
     }
   }
