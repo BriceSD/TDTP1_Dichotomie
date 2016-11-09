@@ -1,9 +1,20 @@
 object Main {
-	
-  var hauteur = 3
-  var taille = hauteur/((hauteur+1)/2)
-  var permutations:List[Array[Int]]=Nil
 
+  var hauteur = 3
+  var taille = hauteur / ((hauteur + 1) / 2)
+  var permutations: List[Array[Int]] = Nil
+
+  def indice(l: Int, c: Int): Int = {
+    return (l * (l - 1)) / 2 + c - 1
+  }
+
+  def duplique(src: Array[Int]): Array[Int] = {
+    var dist = Array.fill(src.length)(0)
+    for (i <- 0 to src.length - 1) {
+      dist(i) = src(i)
+    }
+    return dist
+  }
 
 
   def genere(rang: Int, tab: Array[Int]): Unit = {
@@ -43,20 +54,7 @@ object Main {
 
   def main(args: Array[String]): Unit = {
     println("Hello")
-    genere(0), Array.fill(taille)(0)
+    genere(0, Array.fill(taille)(0))
   }
 
-
-
- def duplique(src: Array[Int]):Array[Int]={
-  var dist = Array.fill(src.length)(0)
-  for(i<-0 to src.length-1)
-  {
-    dist(i) = src(i)
-  }
-  return dist
 }
-  
-  
-}
-
