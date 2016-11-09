@@ -1,7 +1,7 @@
 object Main {
 
   var hauteur = 3
-  var taille = hauteur / ((hauteur + 1) / 2)
+  var taille = hauteur * ((hauteur + 1) / 2)
   var permutations: List[Array[Int]] = Nil
 
   def indice(l: Int, c: Int): Int = {
@@ -54,7 +54,20 @@ object Main {
 
   def main(args: Array[String]): Unit = {
     println("Hello")
+    
+    var total:Int = 0
+    
     genere(0, Array.fill(taille)(0))
+    for(i<-0 until permutations.length)
+    {
+      println()
+      total += 1
+     for(j<-0 until permutations(i).length)
+     {
+       println(permutations(i)(j))
+     }
+    }
+    println("TOTAL :"+total)
   }
 
 }
