@@ -10,7 +10,7 @@ object Pyramide {
 
   def duplique(src: Array[Int]): Array[Int] = {
     var dist = Array.fill(src.length)(0)
-    for (i <- 0 to src.length - 1) {
+    for (i <- src.indices) {
       dist(i) = src(i)
     }
     return dist
@@ -26,7 +26,7 @@ object Pyramide {
         
         
         var dejaPris = false
-        for (i <- 0 to rang - 1) {
+        for (i <- 0 until rang) {
           if (tab(i) == valeur)
             dejaPris = true
         }
@@ -52,9 +52,9 @@ object Pyramide {
 
   def correcte(tab: Array[Int], rang:Int): Boolean = {
     var permutation = new String()
-    for (i <- 0 to tab.length - 1)
+    for (i <- tab.indices)
       permutation += tab(i)
-    for (ligne <- 1 to hauteur - 1) {
+    for (ligne <- 1 until hauteur) {
       for (col <- 1 to ligne) {
         if(indice(ligne+1,col+1)<=rang){
         	val n1 = tab(indice(ligne + 1, col))
@@ -74,11 +74,11 @@ object Pyramide {
     var total:Int = 0
     
     genere(0, Array.fill(taille)(0))
-    for(i<-0 until permutations.length)
+    for(i<-permutations.indices)
     {
       println()
       total += 1
-     for(j<-0 until permutations(i).length)
+     for(j<-permutations(i).indices)
      {
        println(permutations(i)(j))
      }

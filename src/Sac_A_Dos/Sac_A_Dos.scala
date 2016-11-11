@@ -1,13 +1,13 @@
 object Sac_A_Dos {
 
   def duplique(src: Array[Boolean], dst: Array[Boolean]): Unit = {
-    for (i <- 0 until src.length)
+    for (i <- src.indices)
       dst(i) = src(i)
   }
 
   def cherche(poids: Array[Int], capacite: Int) {
-    var len = poids.length
-    var meilleure: Array[Boolean] = Array.fill(len)(false)
+    val len = poids.length
+    val meilleure: Array[Boolean] = Array.fill(len)(false)
     chercheRec(0, Array.fill(len)(false))
     println
     print("Meilleure solution trouvée : ")
@@ -16,7 +16,7 @@ object Sac_A_Dos {
 
     def chercheRec(profondeur: Int, courante: Array[Boolean]) {
 
-      var valeur = valeurTotale(courante, poids)
+      val valeur = valeurTotale(courante, poids)
 
       print(" (prof = " + profondeur + ") Explore ")
       affiche(courante, profondeur)
@@ -86,7 +86,7 @@ object Sac_A_Dos {
   }
 
   def main(args: Array[String]): Unit = {
-    var t = Array(1, 2, 3, 4, 5, 8, 9, 10, 11, 12)
+    val t = Array(1, 2, 3, 4, 5, 8, 9, 10, 11, 12)
     cherche(t, 4)
   }
 
