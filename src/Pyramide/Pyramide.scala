@@ -1,4 +1,4 @@
-object Main {
+object Pyramide {
 
   var hauteur = 3
   var taille = hauteur * ((hauteur + 1) / 2)

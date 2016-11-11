@@ -1,6 +1,4 @@
-
-
-object Main {
+object Sac_A_Dos {
 
   def duplique(src: Array[Boolean], dst: Array[Boolean]): Unit = {
     for (i <- 0 until src.length)
